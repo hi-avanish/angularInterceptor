@@ -1,0 +1,21 @@
+<div class="card">
+    <h4> Without Interceptors way of handling </h4>
+    <ng-container *ngIf="grocery$ | async as products">
+        <p-table [columns]="cols" [value]="products" [tableStyle]="{ 'min-width': '40rem' }">
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th *ngFor="let col of columns">
+                        {{ col.header }}
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-columns="columns">
+                <tr>
+                    <td *ngFor="let col of columns">
+                        {{ rowData[col.field] }}
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </ng-container>
+</div>
